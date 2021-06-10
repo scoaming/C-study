@@ -1,0 +1,13 @@
+CFLAGS=-c -Wall -I include
+test:src1/f1.o src2/f2.o main/main.o
+	gcc src1/f1.o src2/f2.o main/main.o -o test
+src1/f1.o:src1/f1.c
+	gcc $(CFLAGS) $^ -o $@
+src2/f2.o:src2/f2.c
+	gcc $(CFLAGS) $^ -o $@
+main/main.o:main/main.c
+	gcc $(CFLAGS) $^ -o $@
+	
+.PHONY:clean
+clean:
+	find ./ -name "*.o" -exec rm {} \;;rm test

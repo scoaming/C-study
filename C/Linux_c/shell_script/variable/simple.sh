@@ -1,0 +1,4 @@
+ifconfig
+ls
+date
+hostname

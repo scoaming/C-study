@@ -1,0 +1,11 @@
+test:f1.o f2.o main.o
+	gcc f1.o f2.o main.o -o test
+f2.o:f2.c
+	gcc -c -Wall f2.c -o f2.o
+f1.o:f1.c
+	gcc -c -Wall f1.c -o f1.o
+main.o:main.c
+	gcc -c -Wall main.c -o main.o
+.PHONY:clean
+clean:
+	rm *.o test
